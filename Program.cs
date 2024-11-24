@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,6 +8,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 var app = builder.Build();
 
+// Database Connection
+builder.Services.AddDbContext<NexCartDBContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 
 // Configure the HTTP request pipeline.
