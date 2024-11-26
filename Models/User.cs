@@ -1,6 +1,6 @@
+using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
 
 namespace NexCart.Models
 {
@@ -21,10 +21,17 @@ namespace NexCart.Models
         [Required]
         public string? PasswordHash { get; set; }
 
-        [Required]
         public string? ContactNumber { get; set; }
 
         public bool IsActive { get; internal set; } = true;
+
+        public string Role { get; set; } = "User";
+
+        //// Navigation property for Seller
+        //public int? SellerId { get; set; } // Nullable because not all users are sellers
+
+        //[ForeignKey("SellerId")]
+        //public Seller? Seller { get; set; }
 
         // Navigation properties
         public ICollection<Order>? Orders { get; set; }

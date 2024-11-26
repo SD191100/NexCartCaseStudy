@@ -1,25 +1,40 @@
 using Microsoft.EntityFrameworkCore;
 using NexCart.Models;
-
+using System.Reflection.Emit;
+namespace NexCart.Data;
 public class NexCartDBContext : DbContext
 {
     public NexCartDBContext() { }
-
     public NexCartDBContext(DbContextOptions<NexCartDBContext> options) : base(options) { }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        if (!optionsBuilder.IsConfigured)
+    
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Default connection string for migrations
-            optionsBuilder.UseSqlServer("Server=localhost;Database=NexCart;User Id=yourusername;Password=yourpassword;");
-        }
-    }
+            modelBuilder.Entity<OrderDetail>()
+                .HasOne(od => od.Product)
+                .WithMany(p => p.OrderDetails)
+                .HasForeignKey(od => od.ProductId)
+                .OnDelete(DeleteBehavior.NoAction); // Prevent cascade delete
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        base.OnModelCreating(modelBuilder);
-    }
+            modelBuilder.Entity<Product>()
+                .HasOne(p => p.Category)
+                .WithMany(c => c.Products)
+                .HasForeignKey(p => p.CategoryId)
+                .OnDelete(DeleteBehavior.NoAction); // Prevent cascade delete
+
+            modelBuilder.Entity<Product>()
+                .HasOne(p => p.Seller)
+                .WithMany(s => s.Products)
+                .HasForeignKey(p => p.SellerId)
+                .OnDelete(DeleteBehavior.NoAction); // Prevent cascade delete
+        }
+        //base.OnModelCreating(modelBuilder);
+    
+
+    //protected override void OnModelCreating(ModelBuilder modelBuilder)
+    //{
+    //    base.OnModelCreating(modelBuilder);
+    //}
 
     public DbSet<User> Users { get; set; }
     public DbSet<Seller> Sellers { get; set; }
