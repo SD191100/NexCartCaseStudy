@@ -47,5 +47,6 @@ public class NexCartDBContext : DbContext
     public DbSet<Order> Orders { get; set; }
     public DbSet<OrderDetail> OrderDetails { get; set; }
     public DbSet<Payment> Payments { get; set; }
+    public DbSet<Review> Reviews { get; set; }
 }
 

@@ -1,13 +1,15 @@
-﻿using NexCart.Models;
+﻿using NexCart.DTOs.Category;
+using NexCart.Models;
 
 namespace NexCart.Services.Interfaces
 {
     public interface ICategoryService
     {
-        IEnumerable<Category> GetAllCategories();
-        Category GetCategoryById(int categoryId);
-        void AddCategory(Category category);
-        void UpdateCategory(Category category);
-        void DeleteCategory(int categoryId);
+        Task<IEnumerable<CategoryResponseDTO>> GetAllCategoriesAsync();
+        Task<CategoryResponseDTO?> GetCategoryByIdAsync(int categoryId);
+        Task AddCategoryAsync(CategoryRequestDTO categoryRequest);
+        Task UpdateCategoryAsync(int categoryId, CategoryRequestDTO categoryRequest);
+        Task DeleteCategoryAsync(int categoryId);
     }
+
 }

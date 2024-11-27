@@ -1,41 +1,60 @@
-﻿using NexCart.Models;
+﻿using NexCart.DTOs.Category;
+using NexCart.Models;
 using NexCart.Repositories.Interfaces;
 using NexCart.Services.Interfaces;
 
-namespace NexCart.Services.Implementations
+public class CategoryService : ICategoryService
 {
-    public class CategoryService : ICategoryService
+    private readonly ICategoryRepository _categoryRepository;
+
+    public CategoryService(ICategoryRepository categoryRepository)
     {
-        private readonly ICategoryRepository _categoryRepository;
+        _categoryRepository = categoryRepository;
+    }
 
-        public CategoryService(ICategoryRepository categoryRepository)
+    public async Task<IEnumerable<CategoryResponseDTO>> GetAllCategoriesAsync()
+    {
+        var categories = await _categoryRepository.GetAllCategoriesAsync();
+        return categories.Select(c => new CategoryResponseDTO
         {
-            _categoryRepository = categoryRepository;
-        }
+            CategoryId = c.CategoryId,
+            Name = c.Name
+        });
+    }
 
-        public IEnumerable<Category> GetAllCategories()
-        {
-            return _categoryRepository.GetAllCategories();
-        }
+    public async Task<CategoryResponseDTO?> GetCategoryByIdAsync(int categoryId)
+    {
+        var category = await _categoryRepository.GetCategoryByIdAsync(categoryId);
+        if (category == null) return null;
 
-        public Category GetCategoryById(int categoryId)
+        return new CategoryResponseDTO
         {
-            return _categoryRepository.GetCategoryById(categoryId);
-        }
+            CategoryId = category.CategoryId,
+            Name = category.Name
+        };
+    }
 
-        public void AddCategory(Category category)
+    public async Task AddCategoryAsync(CategoryRequestDTO categoryRequest)
+    {
+        var category = new Category
         {
-            _categoryRepository.AddCategory(category);
-        }
+            Name = categoryRequest.Name
+        };
+        await _categoryRepository.AddCategoryAsync(category);
+    }
 
-        public void UpdateCategory(Category category)
+    public async Task UpdateCategoryAsync(int categoryId, CategoryRequestDTO categoryRequest)
+    {
+        var category = await _categoryRepository.GetCategoryByIdAsync(categoryId);
+        if (category != null)
         {
-            _categoryRepository.UpdateCategory(category);
+            category.Name = categoryRequest.Name;
+            await _categoryRepository.UpdateCategoryAsync(category);
         }
+    }
 
-        public void DeleteCategory(int categoryId)
-        {
-            _categoryRepository.DeleteCategory(categoryId);
-        }
+    public async Task DeleteCategoryAsync(int categoryId)
+    {
+        await _categoryRepository.DeleteCategoryAsync(categoryId);
     }
 }

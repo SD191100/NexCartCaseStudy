@@ -1,5 +1,7 @@
 ﻿using NexCart.DTOs.Product;
+using NexCart.DTOs.Sales;
 using NexCart.Models;
+using NexCart.Repositories.Implementations;
 using NexCart.Repositories.Interfaces;
 using NexCart.Services.Interfaces;
 
@@ -49,13 +51,36 @@ namespace NexCart.Services.Implementations
             {
                 oldProduct.CategoryId = product.CategoryId;
             }
-           
+
             _productRepository.Update(oldProduct);
         }
 
         public void DeleteProduct(int productId)
         {
             _productRepository.Delete(productId);
+        }
+
+        public async Task<IEnumerable<ProductResponseDTO>> GetProductsBySellerAsync(int sellerId)
+        {
+            var products = await _productRepository.GetProductsBySellerAsync(sellerId);
+            return products.Select(p => new ProductResponseDTO
+            {
+                ProductId = p.ProductId,
+                Name = p.Name,
+                Price = p.Price,
+                Quantity = p.Stock,
+                Description = p.Description
+            });
+        }
+
+        public async Task<IEnumerable<SalesReportDTO>> GenerateSalesReportAsync(int sellerId, DateTime startDate, DateTime endDate)
+        {
+            return await _productRepository.GetSalesReportAsync(sellerId, startDate, endDate);
+        }
+
+        public async Task<AnalyticsDTO> GetSellerAnalyticsAsync(int sellerId, DateTime startDate, DateTime endDate)
+        {
+            return await _productRepository.GetSellerAnalyticsAsync(sellerId, startDate, endDate);
         }
     }
 }
