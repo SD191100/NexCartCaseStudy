@@ -93,13 +93,14 @@ namespace NexCart.Services.Implementations
         {
             var totalCost = await CalculateTotalCostAsync(checkoutRequest.CartItems);
             // Return a summary for the frontend to display the total and other details.
-            return new OrderResponseDTO { TotalAmount = totalCost };
+            return new OrderResponseDTO { Status = "pending", TotalAmount = totalCost, OrderDate = DateTime.Now };
         }
 
         public async Task<bool> ProcessPaymentAsync(PaymentRequestDTO paymentRequest)
         {
             // Simulate payment processing
             // If payment is successful:
+            
             return true;
         }
 
@@ -109,8 +110,8 @@ namespace NexCart.Services.Implementations
             {
                 UserId = confirmationRequest.UserId,
                 TotalAmount = confirmationRequest.TotalAmount,
-                Status = "Pending",
-                OrderDate = DateTime.UtcNow
+                OrderDate = DateTime.UtcNow,
+                PaymentID = confirmationRequest.PaymentID
             };
 
             var savedOrder = await _orderRepository.SaveOrderAsync(order);
@@ -130,7 +131,6 @@ namespace NexCart.Services.Implementations
                 OrderId = savedOrder.OrderId,
                 OrderDate = savedOrder.OrderDate,
                 TotalAmount = savedOrder.TotalAmount.Value,
-                Status = savedOrder.Status,
                 OrderDetails = orderDetails.Select(od => new OrderDetailDTO
                 {
                     ProductId = od.ProductId,

@@ -18,9 +18,12 @@ namespace NexCart.Repositories.Implementations
             return _context.Payments.FirstOrDefault(p => p.PaymentId == paymentId);
         }
 
-        public IEnumerable<Payment> GetPaymentsByOrderId(int orderId)
+        public Payment GetPaymentByOrderId(int orderId)
         {
-            return _context.Payments.Where(p => p.OrderId == orderId).ToList();
+            return _context.Orders
+                           .Where(o => o.OrderId == orderId)
+                           .Select(o => o.Payments)
+                           .FirstOrDefault();
         }
 
         public void AddPayment(Payment payment)

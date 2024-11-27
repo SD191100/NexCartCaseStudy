@@ -36,7 +36,7 @@ namespace NexCart.Services.Implementations
                 Role = role,
                 FirstName = firstName,
                 LastName = lastName,
-                //ContactNumber = contactNumber
+                ContactNumber = contactNumber
             };
 
             if (role == "Seller")

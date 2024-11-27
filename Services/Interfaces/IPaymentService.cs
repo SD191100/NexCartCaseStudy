@@ -1,11 +1,13 @@
-﻿using NexCart.Models;
+﻿using NexCart.DTOs.Checkout;
+using NexCart.Models;
 
 namespace NexCart.Services.Interfaces
 {
     public interface IPaymentService
     {
         Payment GetPaymentById(int paymentId);
-        IEnumerable<Payment> GetPaymentsByOrderId(int orderId);
+        Payment GetPaymentsByOrderId(int orderId);
         void AddPayment(Payment payment);
+        public Payment ProcessPaymentAsync(PaymentRequestDTO paymentRequest);
     }
 }

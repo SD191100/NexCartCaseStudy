@@ -10,10 +10,12 @@ using NexCart.Services.Interfaces;
 public class OrderController : ControllerBase
 {
     private readonly IOrderService _orderService;
+    private readonly IPaymentService _paymentService;
 
-    public OrderController(IOrderService orderService)
+    public OrderController(IOrderService orderService, IPaymentService paymentService)
     {
         _orderService = orderService;
+        _paymentService = paymentService;
     }
 
     [HttpGet("{id}")]
@@ -32,12 +34,12 @@ public class OrderController : ControllerBase
         return Ok(orders);
     }
 
-    //[HttpPost]
-    //public IActionResult PlaceOrder([FromBody] CreateOrderDto createOrderDto)
-    //{
-    //    _orderService.PlaceOrder(createOrderDto);
-    //    return Ok(new { Message = "Order placed successfully" });
-    //}
+    [HttpPost]
+    public IActionResult PlaceSingleOrder([FromBody] CreateOrderDto createOrderDto)
+    {
+        _orderService.PlaceOrder(createOrderDto);
+        return Ok(new { Message = "Order placed successfully" });
+    }
 
     [HttpGet("user/{userId}/history")]
     [Authorize]  // Ensure only authenticated users can access
@@ -63,13 +65,12 @@ public class OrderController : ControllerBase
     [Authorize]
     public async Task<IActionResult> ProcessPayment([FromBody] PaymentRequestDTO request)
     {
-        var isSuccess = await _orderService.ProcessPaymentAsync(request);
-        if (!isSuccess)
-        {
-            return BadRequest("Payment failed.");
-        }
+        var newPayment =  _paymentService.ProcessPaymentAsync(request);
+        
 
-        return Ok(new { Message = "Payment successful" });
+        //_orderService.
+
+        return Ok(new { Message = "Payment successful", newPayment.PaymentId });
     }
 
     [HttpPost("confirm-order")]

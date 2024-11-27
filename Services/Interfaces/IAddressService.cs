@@ -1,13 +1,10 @@
 ﻿using NexCart.Models;
 
-namespace NexCart.Services.Interfaces
+public interface IAddressService
 {
-    public interface IAddressService
-    {
-        Address GetAddressById(int addressId);
-        IEnumerable<Address> GetAddressesByUserId(int userId);
-        void AddAddress(Address address);
-        void UpdateAddress(Address address);
-        void DeleteAddress(int addressId);
-    }
+    Task<Address> GetAddressByIdAsync(int addressId);
+    Task<IEnumerable<Address>> GetAddressesByUserIdAsync(int userId);
+    Task AddAddressAsync(Address address);
+    Task UpdateAddressAsync(Address address);
+    Task DeleteAddressAsync(int addressId);
 }

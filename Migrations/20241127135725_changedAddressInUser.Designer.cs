@@ -12,8 +12,8 @@ using NexCart.Data;
 namespace NexCart.Migrations
 {
     [DbContext(typeof(NexCartDBContext))]
-    [Migration("20241127071631_OrderUpdateDB")]
-    partial class OrderUpdateDB
+    [Migration("20241127135725_changedAddressInUser")]
+    partial class changedAddressInUser
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -65,9 +65,7 @@ namespace NexCart.Migrations
                         .IsUnique()
                         .HasFilter("[SellerId] IS NOT NULL");
 
-                    b.HasIndex("UserId")
-                        .IsUnique()
-                        .HasFilter("[UserId] IS NOT NULL");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Addresses");
                 });
@@ -149,8 +147,8 @@ namespace NexCart.Migrations
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Status")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("PaymentID")
+                        .HasColumnType("int");
 
                     b.Property<decimal?>("TotalAmount")
                         .HasColumnType("decimal(18,2)");
@@ -159,6 +157,8 @@ namespace NexCart.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("OrderId");
+
+                    b.HasIndex("PaymentID");
 
                     b.HasIndex("UserId");
 
@@ -205,9 +205,6 @@ namespace NexCart.Migrations
                     b.Property<decimal>("Amount")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("PaymentDate")
                         .HasColumnType("datetime2");
 
@@ -216,9 +213,10 @@ namespace NexCart.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.HasKey("PaymentId");
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasIndex("OrderId");
+                    b.HasKey("PaymentId");
 
                     b.ToTable("Payments");
                 });
@@ -367,8 +365,8 @@ namespace NexCart.Migrations
                         .HasForeignKey("NexCart.Models.Address", "SellerId");
 
                     b.HasOne("NexCart.Models.User", "User")
-                        .WithOne("Address")
-                        .HasForeignKey("NexCart.Models.Address", "UserId");
+                        .WithMany("Address")
+                        .HasForeignKey("UserId");
 
                     b.Navigation("Seller");
 
@@ -405,11 +403,19 @@ namespace NexCart.Migrations
 
             modelBuilder.Entity("NexCart.Models.Order", b =>
                 {
+                    b.HasOne("NexCart.Models.Payment", "Payments")
+                        .WithMany()
+                        .HasForeignKey("PaymentID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("NexCart.Models.User", "User")
                         .WithMany("Orders")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Payments");
 
                     b.Navigation("User");
                 });
@@ -431,17 +437,6 @@ namespace NexCart.Migrations
                     b.Navigation("Order");
 
                     b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("NexCart.Models.Payment", b =>
-                {
-                    b.HasOne("NexCart.Models.Order", "Order")
-                        .WithMany("Payments")
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Order");
                 });
 
             modelBuilder.Entity("NexCart.Models.Product", b =>
@@ -497,8 +492,6 @@ namespace NexCart.Migrations
             modelBuilder.Entity("NexCart.Models.Order", b =>
                 {
                     b.Navigation("OrderDetails");
-
-                    b.Navigation("Payments");
                 });
 
             modelBuilder.Entity("NexCart.Models.Product", b =>

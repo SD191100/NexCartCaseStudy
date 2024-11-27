@@ -15,13 +15,18 @@ namespace NexCart.Models
         [ForeignKey("UserId")]
         public User User { get; set; }
         public decimal? TotalAmount { get; set; }
-        public string? Status { get; set; }
+        
 
         public DateTime OrderDate { get; set; }
 
         // Navigation
         public ICollection<OrderDetail> OrderDetails { get; set; }
-        public ICollection<Payment> Payments { get; set; }
+
+        [Required]
+        public int PaymentID { get; set; }
+
+        [ForeignKey("PaymentID")]
+        public Payment Payments { get; set; }
     }
 }
 

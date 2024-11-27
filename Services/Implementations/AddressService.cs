@@ -2,40 +2,37 @@
 using NexCart.Repositories.Interfaces;
 using NexCart.Services.Interfaces;
 
-namespace NexCart.Services.Implementations
+public class AddressService : IAddressService
 {
-    public class AddressService : IAddressService
+    private readonly IAddressRepository _addressRepository;
+
+    public AddressService(IAddressRepository addressRepository)
     {
-        private readonly IAddressRepository _addressRepository;
+        _addressRepository = addressRepository;
+    }
 
-        public AddressService(IAddressRepository addressRepository)
-        {
-            _addressRepository = addressRepository;
-        }
+    public async Task<Address> GetAddressByIdAsync(int addressId)
+    {
+        return await _addressRepository.GetAddressByIdAsync(addressId);
+    }
 
-        public Address GetAddressById(int addressId)
-        {
-            return _addressRepository.GetAddressById(addressId);
-        }
+    public async Task<IEnumerable<Address>> GetAddressesByUserIdAsync(int userId)
+    {
+        return await _addressRepository.GetAddressesByUserIdAsync(userId);
+    }
 
-        public IEnumerable<Address> GetAddressesByUserId(int userId)
-        {
-            return _addressRepository.GetAddressesByUserId(userId);
-        }
+    public async Task AddAddressAsync(Address address)
+    {
+        await _addressRepository.AddAddressAsync(address);
+    }
 
-        public void AddAddress(Address address)
-        {
-            _addressRepository.AddAddress(address);
-        }
+    public async Task UpdateAddressAsync(Address address)
+    {
+        await _addressRepository.UpdateAddressAsync(address);
+    }
 
-        public void UpdateAddress(Address address)
-        {
-            _addressRepository.UpdateAddress(address);
-        }
-
-        public void DeleteAddress(int addressId)
-        {
-            _addressRepository.DeleteAddress(addressId);
-        }
+    public async Task DeleteAddressAsync(int addressId)
+    {
+        await _addressRepository.DeleteAddressAsync(addressId);
     }
 }

@@ -35,7 +35,7 @@ namespace NexCart.Models
 
         // Navigation properties
         public ICollection<Order>? Orders { get; set; }
-        public Address? Address { get; set; }
+        public ICollection<Address>? Address { get; set; }
     }
 }
 
