@@ -41,5 +41,28 @@ namespace NexCart.Repositories.Implementations
             _context.Orders.Update(order);
             _context.SaveChanges();
         }
+
+        public async Task<List<Order>> GetOrdersByUserIdAsync(int userId)
+        {
+            return await _context.Orders
+                .Include(o => o.OrderDetails)  // Include related items if needed
+                .Where(o => o.UserId == userId)
+                .OrderByDescending(o => o.OrderDate)  // Optional: Order by date
+                .ToListAsync();
+        }
+
+        public async Task<Order> SaveOrderAsync(Order order)
+        {
+            _context.Orders.Add(order);
+            await _context.SaveChangesAsync();
+            return order;
+        }
+
+        public async Task<List<OrderDetail>> SaveOrderDetailsAsync(List<OrderDetail> orderDetails)
+        {
+            _context.OrderDetails.AddRange(orderDetails);
+            await _context.SaveChangesAsync();
+            return orderDetails;
+        }
     }
 }

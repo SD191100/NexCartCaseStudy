@@ -14,6 +14,8 @@ namespace NexCart.Models
 
         [ForeignKey("UserId")]
         public User User { get; set; }
+        public decimal? TotalAmount { get; set; }
+        public string? Status { get; set; }
 
         public DateTime OrderDate { get; set; }
 

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using NexCart.DTOs.Checkout;
 using NexCart.DTOs.Order;
 using NexCart.Services.Interfaces;
 
@@ -31,10 +32,51 @@ public class OrderController : ControllerBase
         return Ok(orders);
     }
 
-    [HttpPost]
-    public IActionResult PlaceOrder([FromBody] CreateOrderDto createOrderDto)
+    //[HttpPost]
+    //public IActionResult PlaceOrder([FromBody] CreateOrderDto createOrderDto)
+    //{
+    //    _orderService.PlaceOrder(createOrderDto);
+    //    return Ok(new { Message = "Order placed successfully" });
+    //}
+
+    [HttpGet("user/{userId}/history")]
+    [Authorize]  // Ensure only authenticated users can access
+    public async Task<IActionResult> GetOrderHistory(int userId)
     {
-        _orderService.PlaceOrder(createOrderDto);
-        return Ok(new { Message = "Order placed successfully" });
+        var orders = await _orderService.GetUserOrderHistoryAsync(userId);
+        if (orders == null || !orders.Any())
+        {
+            return NotFound(new { message = "No orders found for this user." });
+        }
+        return Ok(orders);
+    }
+
+    [HttpPost("checkout")]
+    [Authorize]
+    public async Task<IActionResult> Checkout([FromBody] CheckoutRequestDTO request)
+    {
+        var response = await _orderService.CheckoutAsync(request);
+        return Ok(response);
+    }
+
+    [HttpPost("process-payment")]
+    [Authorize]
+    public async Task<IActionResult> ProcessPayment([FromBody] PaymentRequestDTO request)
+    {
+        var isSuccess = await _orderService.ProcessPaymentAsync(request);
+        if (!isSuccess)
+        {
+            return BadRequest("Payment failed.");
+        }
+
+        return Ok(new { Message = "Payment successful" });
+    }
+
+    [HttpPost("confirm-order")]
+    [Authorize]
+    public async Task<IActionResult> ConfirmOrder([FromBody] OrderConfirmationDTO request)
+    {
+        var response = await _orderService.ConfirmOrderAsync(request);
+        return Ok(response);
     }
 }
