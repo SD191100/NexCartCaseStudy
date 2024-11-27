@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.OpenApi;
 using Microsoft.EntityFrameworkCore;
 using NexCart.Data;
+using NexCart.DTOs.Product;
+using Microsoft.CodeAnalysis.FlowAnalysis.DataFlow;
 
 namespace NexCart.Services.Interfaces
 {
@@ -10,8 +12,8 @@ namespace NexCart.Services.Interfaces
     {
         Product GetProductById(int productId);
         IEnumerable<Product> GetAllProducts();
-        void AddProduct(Product product);
-        void UpdateProduct(Product product);
+        void AddProduct(AddProductReq product);
+        void UpdateProduct(UpdateProductReq product);
         void DeleteProduct(int productId);
     }
 }

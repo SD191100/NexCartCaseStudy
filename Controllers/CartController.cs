@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NexCart.Models;
+using NexCart.DTOs;
 using NexCart.Services.Interfaces;
-namespace NexCart.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
@@ -16,17 +15,40 @@ public class CartController : ControllerBase
         _cartService = cartService;
     }
 
-    [HttpPost]
-    public IActionResult AddToCart([FromBody] CartItem cartItem)
+    [HttpGet("{userId}")]
+    public IActionResult GetCart(int userId)
     {
-        _cartService.AddToCart(cartItem);
+        var cart = _cartService.GetCartByUserId(userId);
+        if (cart == null) return NotFound(new { Message = "Cart not found" });
+
+        return Ok(cart);
+    }
+
+    [HttpPost("{userId}/add")]
+    public IActionResult AddToCart(int userId, [FromBody] CartItemDto cartItemDto)
+    {
+        _cartService.AddToCart(userId, cartItemDto);
         return Ok(new { Message = "Item added to cart" });
     }
 
-    [HttpGet]
-    public IActionResult GetCart(int id)
+    [HttpPut("item/{cartItemId}")]
+    public IActionResult UpdateCartItem(int cartItemId, int Quantity)
     {
-        var cart = _cartService.GetCartByUserId(id);
-        return Ok(cart);
+        _cartService.UpdateCartItem(cartItemId, Quantity);
+        return Ok(new { Message = "Cart item updated" });
+    }
+
+    [HttpDelete("item/{cartItemId}")]
+    public IActionResult RemoveCartItem(int cartItemId)
+    {
+        _cartService.RemoveCartItem(cartItemId);
+        return Ok(new { Message = "Cart item removed" });
+    }
+
+    [HttpDelete("{userId}/clear")]
+    public IActionResult ClearCart(int userId)
+    {
+        _cartService.ClearCart(userId);
+        return Ok(new { Message = "Cart cleared" });
     }
 }

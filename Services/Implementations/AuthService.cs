@@ -56,6 +56,25 @@ namespace NexCart.Services.Implementations
             }
         }
 
+        public void Register(string email, string password, string role, string firstName, string lastName)
+        {
+            if (_userRepository.GetUserByEmail(email) != null)
+                throw new InvalidOperationException("User already exists");
+
+            var hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
+
+            var user = new User
+            {
+                Email = email,
+                PasswordHash = hashedPassword,
+                Role = role,
+                FirstName = firstName,
+                LastName = lastName,
+                //ContactNumber = contactNumber
+            };
+            _userRepository.Add(user);
+        }
+
 
         // Login function
         public string Authenticate(string email, string password)

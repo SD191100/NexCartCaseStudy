@@ -1,4 +1,5 @@
-﻿using NexCart.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using NexCart.Data;
 using NexCart.Models;
 using NexCart.Repositories.Interfaces;
 
@@ -15,12 +16,18 @@ namespace NexCart.Repositories.Implementations
 
         public Order GetOrderById(int orderId)
         {
-            return _context.Orders.FirstOrDefault(o => o.OrderId == orderId);
+            return _context.Orders
+                .Include(o => o.OrderDetails)
+                .ThenInclude(od => od.Product)
+                .FirstOrDefault(o => o.OrderId == orderId);
         }
 
         public IEnumerable<Order> GetOrdersByUserId(int userId)
         {
-            return _context.Orders.Where(o => o.UserId == userId).ToList();
+            return _context.Orders
+                .Include(o => o.OrderDetails)
+                .Where(o => o.UserId == userId)
+                .ToList();
         }
 
         public void AddOrder(Order order)

@@ -16,12 +16,12 @@ namespace NexCart.Repositories.Implementations
 
         public Product GetProductById(int productId)
         {
-            return _context.Products.Include(p => p.Category).FirstOrDefault(p => p.ProductId == productId);
+            return _context.Products.FirstOrDefault(p => p.ProductId == productId);
         }
 
         public IEnumerable<Product> GetAllProducts()
         {
-            return _context.Products.Include(p => p.Category).ToList();
+            return _context.Products.ToList();
         }
 
         public void Add(Product product)

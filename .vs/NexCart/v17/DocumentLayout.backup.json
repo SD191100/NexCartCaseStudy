@@ -3,28 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\shiva\\source\\repos\\SD191100\\NexCartCaseStudy\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D4949813-B1C3-4C5A-93BC-4ABAA638A487}|NexCart.csproj|c:\\users\\shiva\\source\\repos\\sd191100\\nexcartcasestudy\\repositories\\implementations\\sellerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D4949813-B1C3-4C5A-93BC-4ABAA638A487}|NexCart.csproj|solutionrelative:repositories\\implementations\\sellerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D4949813-B1C3-4C5A-93BC-4ABAA638A487}|NexCart.csproj|c:\\users\\shiva\\source\\repos\\sd191100\\nexcartcasestudy\\repositories\\interfaces\\isellerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D4949813-B1C3-4C5A-93BC-4ABAA638A487}|NexCart.csproj|solutionrelative:repositories\\interfaces\\isellerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D4949813-B1C3-4C5A-93BC-4ABAA638A487}|NexCart.csproj|c:\\users\\shiva\\source\\repos\\sd191100\\nexcartcasestudy\\services\\implementations\\sellerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D4949813-B1C3-4C5A-93BC-4ABAA638A487}|NexCart.csproj|solutionrelative:services\\implementations\\sellerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D4949813-B1C3-4C5A-93BC-4ABAA638A487}|NexCart.csproj|c:\\users\\shiva\\source\\repos\\sd191100\\nexcartcasestudy\\services\\implementations\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D4949813-B1C3-4C5A-93BC-4ABAA638A487}|NexCart.csproj|solutionrelative:services\\implementations\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D4949813-B1C3-4C5A-93BC-4ABAA638A487}|NexCart.csproj|c:\\users\\shiva\\source\\repos\\sd191100\\nexcartcasestudy\\services\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D4949813-B1C3-4C5A-93BC-4ABAA638A487}|NexCart.csproj|solutionrelative:services\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D4949813-B1C3-4C5A-93BC-4ABAA638A487}|NexCart.csproj|c:\\users\\shiva\\source\\repos\\sd191100\\nexcartcasestudy\\helpers\\jwthelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4949813-B1C3-4C5A-93BC-4ABAA638A487}|NexCart.csproj|solutionrelative:helpers\\jwthelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D4949813-B1C3-4C5A-93BC-4ABAA638A487}|NexCart.csproj|c:\\users\\shiva\\source\\repos\\sd191100\\nexcartcasestudy\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D4949813-B1C3-4C5A-93BC-4ABAA638A487}|NexCart.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4949813-B1C3-4C5A-93BC-4ABAA638A487}|NexCart.csproj|c:\\users\\shiva\\source\\repos\\sd191100\\nexcartcasestudy\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4949813-B1C3-4C5A-93BC-4ABAA638A487}|NexCart.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4949813-B1C3-4C5A-93BC-4ABAA638A487}|NexCart.csproj|c:\\users\\shiva\\source\\repos\\sd191100\\nexcartcasestudy\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4949813-B1C3-4C5A-93BC-4ABAA638A487}|NexCart.csproj|solutionrelative:controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4949813-B1C3-4C5A-93BC-4ABAA638A487}|NexCart.csproj|c:\\users\\shiva\\source\\repos\\sd191100\\nexcartcasestudy\\services\\interfaces\\iorderdetailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4949813-B1C3-4C5A-93BC-4ABAA638A487}|NexCart.csproj|solutionrelative:services\\interfaces\\iorderdetailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4949813-B1C3-4C5A-93BC-4ABAA638A487}|NexCart.csproj|c:\\users\\shiva\\source\\repos\\sd191100\\nexcartcasestudy\\services\\implementations\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4949813-B1C3-4C5A-93BC-4ABAA638A487}|NexCart.csproj|solutionrelative:services\\implementations\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4949813-B1C3-4C5A-93BC-4ABAA638A487}|NexCart.csproj|c:\\users\\shiva\\source\\repos\\sd191100\\nexcartcasestudy\\services\\interfaces\\iorderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4949813-B1C3-4C5A-93BC-4ABAA638A487}|NexCart.csproj|solutionrelative:services\\interfaces\\iorderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4949813-B1C3-4C5A-93BC-4ABAA638A487}|NexCart.csproj|c:\\users\\shiva\\source\\repos\\sd191100\\nexcartcasestudy\\services\\implementations\\orderdetailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4949813-B1C3-4C5A-93BC-4ABAA638A487}|NexCart.csproj|solutionrelative:services\\implementations\\orderdetailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -39,80 +47,99 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "SellerRepository.cs",
-              "DocumentMoniker": "C:\\Users\\shiva\\source\\repos\\SD191100\\NexCartCaseStudy\\Repositories\\Implementations\\SellerRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Implementations\\SellerRepository.cs",
-              "ToolTip": "C:\\Users\\shiva\\source\\repos\\SD191100\\NexCartCaseStudy\\Repositories\\Implementations\\SellerRepository.cs",
-              "RelativeToolTip": "Repositories\\Implementations\\SellerRepository.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAA8wCEAAAAjAAAAAAAAAA==",
+              "Title": "JwtHelper.cs",
+              "DocumentMoniker": "C:\\Users\\shiva\\source\\repos\\SD191100\\NexCartCaseStudy\\Helpers\\JwtHelper.cs",
+              "RelativeDocumentMoniker": "Helpers\\JwtHelper.cs",
+              "ToolTip": "C:\\Users\\shiva\\source\\repos\\SD191100\\NexCartCaseStudy\\Helpers\\JwtHelper.cs",
+              "RelativeToolTip": "Helpers\\JwtHelper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-26T08:27:58.452Z",
+              "WhenOpened": "2024-11-26T17:14:40.294Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ISellerRepository.cs",
-              "DocumentMoniker": "C:\\Users\\shiva\\source\\repos\\SD191100\\NexCartCaseStudy\\Repositories\\Interfaces\\ISellerRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Interfaces\\ISellerRepository.cs",
-              "ToolTip": "C:\\Users\\shiva\\source\\repos\\SD191100\\NexCartCaseStudy\\Repositories\\Interfaces\\ISellerRepository.cs",
-              "RelativeToolTip": "Repositories\\Interfaces\\ISellerRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAkAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-26T08:23:55.175Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SellerService.cs",
-              "DocumentMoniker": "C:\\Users\\shiva\\source\\repos\\SD191100\\NexCartCaseStudy\\Services\\Implementations\\SellerService.cs",
-              "RelativeDocumentMoniker": "Services\\Implementations\\SellerService.cs",
-              "ToolTip": "C:\\Users\\shiva\\source\\repos\\SD191100\\NexCartCaseStudy\\Services\\Implementations\\SellerService.cs",
-              "RelativeToolTip": "Services\\Implementations\\SellerService.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAmwBsAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-26T08:24:04.49Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\shiva\\source\\repos\\SD191100\\NexCartCaseStudy\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
               "ToolTip": "C:\\Users\\shiva\\source\\repos\\SD191100\\NexCartCaseStudy\\Controllers\\AuthController.cs",
               "RelativeToolTip": "Controllers\\AuthController.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAgwBsAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-26T08:20:37.89Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-26T17:06:38.88Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "IAuthService.cs",
-              "DocumentMoniker": "C:\\Users\\shiva\\source\\repos\\SD191100\\NexCartCaseStudy\\Services\\Interfaces\\IAuthService.cs",
-              "RelativeDocumentMoniker": "Services\\Interfaces\\IAuthService.cs",
-              "ToolTip": "C:\\Users\\shiva\\source\\repos\\SD191100\\NexCartCaseStudy\\Services\\Interfaces\\IAuthService.cs",
-              "RelativeToolTip": "Services\\Interfaces\\IAuthService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAQAAACBAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\shiva\\source\\repos\\SD191100\\NexCartCaseStudy\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Models\\User.cs",
+              "ToolTip": "C:\\Users\\shiva\\source\\repos\\SD191100\\NexCartCaseStudy\\Models\\User.cs",
+              "RelativeToolTip": "Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-26T08:18:49.605Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-26T17:06:17.912Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "AuthService.cs",
-              "DocumentMoniker": "C:\\Users\\shiva\\source\\repos\\SD191100\\NexCartCaseStudy\\Services\\Implementations\\AuthService.cs",
-              "RelativeDocumentMoniker": "Services\\Implementations\\AuthService.cs",
-              "ToolTip": "C:\\Users\\shiva\\source\\repos\\SD191100\\NexCartCaseStudy\\Services\\Implementations\\AuthService.cs",
-              "RelativeToolTip": "Services\\Implementations\\AuthService.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAgwCgAAAAAAAAAAAAAAA==",
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "C:\\Users\\shiva\\source\\repos\\SD191100\\NexCartCaseStudy\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "Controllers\\OrderController.cs",
+              "ToolTip": "C:\\Users\\shiva\\source\\repos\\SD191100\\NexCartCaseStudy\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "Controllers\\OrderController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-26T08:13:05.762Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-26T15:22:23.935Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "OrderDetailService.cs",
+              "DocumentMoniker": "C:\\Users\\shiva\\source\\repos\\SD191100\\NexCartCaseStudy\\Services\\Implementations\\OrderDetailService.cs",
+              "RelativeDocumentMoniker": "Services\\Implementations\\OrderDetailService.cs",
+              "ToolTip": "C:\\Users\\shiva\\source\\repos\\SD191100\\NexCartCaseStudy\\Services\\Implementations\\OrderDetailService.cs",
+              "RelativeToolTip": "Services\\Implementations\\OrderDetailService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-26T15:20:22.634Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IOrderDetailService.cs",
+              "DocumentMoniker": "C:\\Users\\shiva\\source\\repos\\SD191100\\NexCartCaseStudy\\Services\\Interfaces\\IOrderDetailService.cs",
+              "RelativeDocumentMoniker": "Services\\Interfaces\\IOrderDetailService.cs",
+              "ToolTip": "C:\\Users\\shiva\\source\\repos\\SD191100\\NexCartCaseStudy\\Services\\Interfaces\\IOrderDetailService.cs",
+              "RelativeToolTip": "Services\\Interfaces\\IOrderDetailService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-26T15:20:19.527Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "OrderService.cs",
+              "DocumentMoniker": "C:\\Users\\shiva\\source\\repos\\SD191100\\NexCartCaseStudy\\Services\\Implementations\\OrderService.cs",
+              "RelativeDocumentMoniker": "Services\\Implementations\\OrderService.cs",
+              "ToolTip": "C:\\Users\\shiva\\source\\repos\\SD191100\\NexCartCaseStudy\\Services\\Implementations\\OrderService.cs",
+              "RelativeToolTip": "Services\\Implementations\\OrderService.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAowEgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-26T15:20:13.939Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IOrderService.cs",
+              "DocumentMoniker": "C:\\Users\\shiva\\source\\repos\\SD191100\\NexCartCaseStudy\\Services\\Interfaces\\IOrderService.cs",
+              "RelativeDocumentMoniker": "Services\\Interfaces\\IOrderService.cs",
+              "ToolTip": "C:\\Users\\shiva\\source\\repos\\SD191100\\NexCartCaseStudy\\Services\\Interfaces\\IOrderService.cs",
+              "RelativeToolTip": "Services\\Interfaces\\IOrderService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-26T15:20:11.525Z"
             }
           ]
         }

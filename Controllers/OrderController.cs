@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NexCart.Models;
+using NexCart.DTOs.Order;
 using NexCart.Services.Interfaces;
-namespace NexCart.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
@@ -16,13 +15,6 @@ public class OrderController : ControllerBase
         _orderService = orderService;
     }
 
-    [HttpPost]
-    public IActionResult PlaceOrder([FromBody] Order order)
-    {
-        _orderService.PlaceOrder(order);
-        return Ok(new { Message = "Order placed successfully" });
-    }
-
     [HttpGet("{id}")]
     public IActionResult GetOrder(int id)
     {
@@ -30,5 +22,19 @@ public class OrderController : ControllerBase
         if (order == null) return NotFound(new { Message = "Order not found" });
 
         return Ok(order);
+    }
+
+    [HttpGet("user/{userId}")]
+    public IActionResult GetOrdersByUserId(int userId)
+    {
+        var orders = _orderService.GetOrdersByUserId(userId);
+        return Ok(orders);
+    }
+
+    [HttpPost]
+    public IActionResult PlaceOrder([FromBody] CreateOrderDto createOrderDto)
+    {
+        _orderService.PlaceOrder(createOrderDto);
+        return Ok(new { Message = "Order placed successfully" });
     }
 }

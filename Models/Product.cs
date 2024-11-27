@@ -25,10 +25,10 @@ namespace NexCart.Models
         [ForeignKey("CategoryId")]
         public Category Category { get; set; }
 
-        public int SellerId { get; set; }
+        public int? SellerId { get; set; }
 
         [ForeignKey("SellerId")]
-        public Seller Seller { get; set; }
+        public Seller? Seller { get; set; }
 
         //Navigation
         public ICollection<OrderDetail> OrderDetails { get; set; }

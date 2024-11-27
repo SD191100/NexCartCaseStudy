@@ -1,4 +1,5 @@
-﻿using NexCart.Models;
+﻿using NexCart.DTOs.Product;
+using NexCart.Models;
 using NexCart.Repositories.Interfaces;
 using NexCart.Services.Interfaces;
 
@@ -23,14 +24,33 @@ namespace NexCart.Services.Implementations
             return _productRepository.GetAllProducts();
         }
 
-        public void AddProduct(Product product)
+        public void AddProduct(AddProductReq product)
         {
-            _productRepository.Add(product);
+            var newProduct = new Product
+            {
+                Name = product.Name,
+                Description = product.Description,
+                Price = product.Price,
+                Stock = product.Stock,
+                CategoryId = product.CategoryId,
+                SellerId = product.SellerId
+            };
+            _productRepository.Add(newProduct);
         }
 
-        public void UpdateProduct(Product product)
+        public void UpdateProduct(UpdateProductReq product)
         {
-            _productRepository.Update(product);
+            var oldProduct = _productRepository.GetProductById(product.Id);
+            oldProduct.Name = product.Name;
+            oldProduct.Description = product.Description;
+            oldProduct.Price = product.Price;
+            oldProduct.Stock = product.Stock;
+            if ( !(product.CategoryId == null))
+            {
+                oldProduct.CategoryId = product.CategoryId;
+            }
+           
+            _productRepository.Update(oldProduct);
         }
 
         public void DeleteProduct(int productId)

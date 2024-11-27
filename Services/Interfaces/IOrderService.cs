@@ -1,11 +1,12 @@
-﻿using NexCart.Models;
+﻿using NexCart.DTOs;
+using NexCart.DTOs.Order;
 
 namespace NexCart.Services.Interfaces
 {
     public interface IOrderService
     {
-        Order GetOrderById(int orderId);
-        IEnumerable<Order> GetOrdersByUserId(int userId);
-        void PlaceOrder(Order order);
+        OrderDto GetOrderById(int orderId);
+        IEnumerable<OrderDto> GetOrdersByUserId(int userId);
+        void PlaceOrder(CreateOrderDto createOrderDto);
     }
 }
