@@ -13,6 +13,21 @@ using NexCart.Controllers;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddCors(options =>
+
+{
+
+    options.AddPolicy("AllowLocalhost",
+
+        builder => builder
+
+            .AllowAnyOrigin()
+
+            .AllowAnyMethod()
+
+            .AllowAnyHeader());
+
+});
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(opt =>
@@ -103,7 +118,7 @@ builder.Services.AddScoped<IProductInventoryService, ProductInventoryService>();
 
 
 builder.Services.AddControllers();
-builder.Services.AddDbContext<NexCartDBContext>(db => db.UseSqlServer(builder.Configuration.GetConnectionString("LocalConnection")));
+builder.Services.AddDbContext<NexCartDBContext>(db => db.UseSqlServer(builder.Configuration.GetConnectionString("RemoteConnection")));
 
 
 var app = builder.Build();
@@ -111,6 +126,7 @@ var app = builder.Build();
 
 
 
+app.UseCors("AllowLocalhost");
 
 
 

@@ -38,7 +38,8 @@ public class CategoryService : ICategoryService
     {
         var category = new Category
         {
-            Name = categoryRequest.Name
+            Name = categoryRequest.Name,
+            Description = categoryRequest.Description,
         };
         await _categoryRepository.AddCategoryAsync(category);
     }

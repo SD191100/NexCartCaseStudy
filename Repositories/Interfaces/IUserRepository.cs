@@ -1,4 +1,5 @@
 using NexCart.Models;
+using NexCart.DTOs.Users;
 
 namespace NexCart.Repositories.Interfaces
 {
@@ -7,7 +8,7 @@ namespace NexCart.Repositories.Interfaces
         User GetUserByEmail(string email);
         void Add(User user);
         User GetUserById(int userId);
-        void Update(User user);
+        void Update(int id, UserRequestDTO user);
         void Delete(int userId);
     }
 }

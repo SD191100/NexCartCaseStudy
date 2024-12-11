@@ -1,6 +1,7 @@
 using NexCart.Models;
 using NexCart.Repositories.Interfaces;
 using NexCart.Services.Interfaces;
+using NexCart.DTOs.Users;
 
 namespace NexCart.Services.Implementations
 {
@@ -28,9 +29,9 @@ namespace NexCart.Services.Implementations
             _userRepository.Add(user);
         }
 
-        public void UpdateUser(User user)
+        public void UpdateUser(int id, UserRequestDTO user)
         {
-            _userRepository.Update(user);
+            _userRepository.Update(id, user);
         }
 
         public void DeleteUser(int userId)

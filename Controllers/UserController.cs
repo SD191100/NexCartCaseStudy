@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NexCart.Models;
+using NexCart.DTOs.Users;
 using NexCart.Services.Interfaces;
 namespace NexCart.Controllers;
 
@@ -25,11 +25,9 @@ namespace NexCart.Controllers;
     }
 
     [HttpPut("{id}")]
-    public IActionResult UpdateUser(int id, [FromBody] User user)
+    public IActionResult UpdateUser(int id, [FromBody] UserRequestDTO user)
     {
-        if (id != user.UserId) return BadRequest(new { Message = "User ID mismatch" });
-
-        _userService.UpdateUser(user);
+        _userService.UpdateUser(id,user);
         return Ok(new { Message = "User updated successfully" });
     }
 

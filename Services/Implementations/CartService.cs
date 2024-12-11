@@ -29,7 +29,8 @@ namespace NexCart.Services.Implementations
                 CartItems = cart.CartItems.Select(ci => new CartItemDto
                 {
                     ProductId = ci.ProductId,
-                    Quantity = ci.Quantity
+                    Quantity = ci.Quantity,
+                    cartItemId = ci.CartItemId
                 }).ToList()
             };
         }

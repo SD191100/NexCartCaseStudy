@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using NexCart.Data;
 using NexCart.Models;
 using NexCart.Repositories.Interfaces;
+using NexCart.DTOs.Users;
 
 namespace NexCart.Repositories.Implementations
 {
@@ -30,9 +31,16 @@ namespace NexCart.Repositories.Implementations
             return _context.Users.FirstOrDefault(u => u.UserId == userId);
         }
 
-        public void Update(User user)
+        public void Update(int id, UserRequestDTO user)
         {
-            _context.Users.Update(user);
+            var existingUser =_context.Users.FirstOrDefault(u => u.UserId == id);
+            if (existingUser != null) {
+              existingUser.Email = user.email;
+              existingUser.FirstName = user.firstName;
+              existingUser.LastName = user.lastName;
+              existingUser.ContactNumber = user.contactNumber;
+            }
+
             _context.SaveChanges();
         }
 
