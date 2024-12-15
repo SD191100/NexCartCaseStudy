@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NexCart")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0f5652bcc987334aaed425f43aee195bb1d0143c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b538e6f58a60d381950fafec50227730b4ed436c")]
 [assembly: System.Reflection.AssemblyProductAttribute("NexCart")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NexCart")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

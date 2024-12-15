@@ -23,11 +23,11 @@ namespace NexCart.Models
 
         public string? ContactNumber { get; set; }
 
-        public bool IsActive { get; internal set; } = true;
+        public bool IsActive { get; set; } = true;
 
         public string Role { get; set; } = "User";
 
-        //// Navigation property for Seller
+       //// Navigation property for Seller
         //public int? SellerId { get; set; } // Nullable because not all users are sellers
 
         //[ForeignKey("SellerId")]

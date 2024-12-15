@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NexCart.Data;
 
@@ -11,9 +12,11 @@ using NexCart.Data;
 namespace NexCart.Migrations
 {
     [DbContext(typeof(NexCartDBContext))]
-    partial class NexCartDBContextModelSnapshot : ModelSnapshot
+    [Migration("20241214163410_imageDB")]
+    partial class imageDB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -233,12 +236,6 @@ namespace NexCart.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Details")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MainImage")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -247,17 +244,11 @@ namespace NexCart.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("SecondImage")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int?>("SellerId")
                         .HasColumnType("int");
 
                     b.Property<int>("Stock")
                         .HasColumnType("int");
-
-                    b.Property<string>("ThirdImage")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ProductId");
 
@@ -388,12 +379,21 @@ namespace NexCart.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<string>("MainImage")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("PasswordHash")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Role")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SecondImage")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ThirdImage")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("UserId");

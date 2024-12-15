@@ -35,7 +35,11 @@ namespace NexCart.Services.Implementations
                 Price = product.Price,
                 Stock = product.Stock,
                 CategoryId = product.CategoryId,
-                SellerId = product.SellerId
+                SellerId = product.SellerId,
+                MainImage = product.MainImage,
+                SecondImage = product.SecondImage,
+                ThirdImage = product.ThirdImage,
+                Details = product.Details
             };
             _productRepository.Add(newProduct);
         }
