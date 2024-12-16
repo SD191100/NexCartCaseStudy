@@ -48,6 +48,16 @@ public class ProductController : ControllerBase
         return Ok(new { Message = "Product updated successfully" });
     }
 
+    [HttpPut("/stock/{id}")]
+    [Authorize(Roles = "User")]
+    public IActionResult UpdateStock(int id, [FromBody] UpdateStockDTO stock)
+    {
+        if (id != stock.ProductId) return BadRequest(new { Message = "Product ID mismatch" });
+
+        _productService.UpdateProduct(stock);
+        return Ok(new { Message = "Product updated successfully" });
+    }
+
     [HttpDelete("{id}")]
     [Authorize(Roles = "Seller")]
     public IActionResult DeleteProduct(int id)

@@ -18,7 +18,8 @@ public class CategoryService : ICategoryService
         return categories.Select(c => new CategoryResponseDTO
         {
             CategoryId = c.CategoryId,
-            Name = c.Name
+            Name = c.Name,
+            Description = c.Description
         });
     }
 
@@ -30,7 +31,8 @@ public class CategoryService : ICategoryService
         return new CategoryResponseDTO
         {
             CategoryId = category.CategoryId,
-            Name = category.Name
+            Name = category.Name,
+            Description = category.Description
         };
     }
 

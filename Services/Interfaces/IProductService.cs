@@ -15,6 +15,7 @@ namespace NexCart.Services.Interfaces
         IEnumerable<Product> GetAllProducts();
         void AddProduct(AddProductReq product);
         void UpdateProduct(UpdateProductReq product);
+        void UpdateProduct(UpdateStockDTO stock);
         void DeleteProduct(int productId);
 
         Task<IEnumerable<ProductResponseDTO>> GetProductsBySellerAsync(int sellerId);

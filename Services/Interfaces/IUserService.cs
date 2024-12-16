@@ -5,6 +5,7 @@ namespace NexCart.Services.Interfaces
 {
     public interface IUserService
     {
+        IEnumerable<User> GetAllUsers();
         User GetUserById(int userId);
         User GetUserByEmail(string email);
         void RegisterUser(User user);

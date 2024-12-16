@@ -38,5 +38,10 @@ namespace NexCart.Services.Implementations
         {
             _userRepository.Delete(userId);
         }
+
+        public IEnumerable<User> GetAllUsers()
+        {
+           return  _userRepository.GetAllUsers();
+        }
     }
 }

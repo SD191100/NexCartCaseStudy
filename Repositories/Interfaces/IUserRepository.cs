@@ -5,6 +5,7 @@ namespace NexCart.Repositories.Interfaces
 {
     public interface IUserRepository
     {
+        IEnumerable<User> GetAllUsers();
         User GetUserByEmail(string email);
         void Add(User user);
         User GetUserById(int userId);

@@ -86,5 +86,13 @@ namespace NexCart.Services.Implementations
         {
             return await _productRepository.GetSellerAnalyticsAsync(sellerId, startDate, endDate);
         }
+
+        public void UpdateProduct(UpdateStockDTO stock)
+        {
+            var oldProduct = _productRepository.GetProductById(stock.ProductId);
+            oldProduct.Stock -=  stock.Stock;
+            _productRepository.Update(oldProduct);
+        }
     }
+    
 }

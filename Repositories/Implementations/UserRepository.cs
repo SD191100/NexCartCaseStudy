@@ -20,6 +20,11 @@ namespace NexCart.Repositories.Implementations
             return _context.Users.FirstOrDefault(u => u.Email == email);
         }
 
+        public IEnumerable<User> GetAllUsers()
+        {
+            return _context.Users.ToList();
+        }
+
         public void Add(User user)
         {
             _context.Users.Add(user);
@@ -38,7 +43,8 @@ namespace NexCart.Repositories.Implementations
               existingUser.Email = user.email;
               existingUser.FirstName = user.firstName;
               existingUser.LastName = user.lastName;
-              existingUser.ContactNumber = user.contactNumber;
+                //existingUser.ContactNumber = user.contactNumber;
+                existingUser.IsActive = user.IsActive;
             }
 
             _context.SaveChanges();

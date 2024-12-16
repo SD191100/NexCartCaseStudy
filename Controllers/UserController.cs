@@ -14,6 +14,15 @@ namespace NexCart.Controllers;
     {
         _userService = userService;
     }
+    [HttpGet] 
+    [Authorize(Roles ="Admin")]
+    public IActionResult GetAllUsers()
+    {
+        var user = _userService.GetAllUsers();
+        if (user == null) return NotFound(new { Message = "User not found" });
+
+        return Ok(user);
+    }
 
     [HttpGet("{id}")]
     public IActionResult GetUser(int id)
